@@ -18,3 +18,8 @@ html, body, #app {
   margin-top: 15px;
   font-size: 12px;
 }
+
+.el-cascader-panel {
+  overflow: hidden;
+  height: 200px;
+}
