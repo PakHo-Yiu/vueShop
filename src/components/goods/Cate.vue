@@ -252,7 +252,7 @@ export default {
     },
     // 点击删除按钮
     async removeGoods (id) {
-      const confirmRes = await this.$confirm('此操作将永久删除此用户，是否继续？', '提示', {
+      const confirmRes = await this.$confirm('此操作将永久删除此分类，是否继续？', '提示', {
         cancelButtonText: '取消',
         confirmButtonText: '确定',
         type: 'warning'
@@ -262,7 +262,8 @@ export default {
       // console.log(confirmRes)
       if (confirmRes !== 'confirm') return this.$message.info('已取消了删除')
       const { data: res } = await this.$http.delete('categories/' + id)
-      if (res.meta.status !== 200) return this.$message.error('删除用户失败')
+      if (res.meta.status !== 200) return this.$message.error('删除分类失败')
+      this.$message.success('删除分类成功')
       this.getCateList()
     }
   }
